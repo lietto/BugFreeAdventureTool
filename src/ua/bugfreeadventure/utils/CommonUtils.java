@@ -1,4 +1,4 @@
-package ua.lietto.devhelp.utils;
+package ua.bugfreeadventure.utils;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -19,7 +19,7 @@ public class CommonUtils {
 	public static String md5(final String s) {
         try {
 			// Create MD5 Hash
-			MessageDigest digest = java.security.MessageDigest
+			MessageDigest digest = MessageDigest
 					.getInstance("MD5");
 			digest.update(s.getBytes());
 			byte messageDigest[] = digest.digest();

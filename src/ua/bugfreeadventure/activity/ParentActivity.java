@@ -1,9 +1,9 @@
-package ua.lietto.devhelp.activity;
+package ua.bugfreeadventure.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import ua.lietto.devhelp.logs.DevToast;
-import ua.lietto.devhelp.notifications.LookAtMe;
+import ua.bugfreeadventure.logs.DevToast;
+import ua.bugfreeadventure.notifications.LookAtMe;
 
 /**
  * Created by lietto on 11.09.2014.

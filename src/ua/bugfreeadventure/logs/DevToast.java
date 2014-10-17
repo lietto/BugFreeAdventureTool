@@ -1,11 +1,11 @@
-package ua.lietto.devhelp.logs;
+package ua.bugfreeadventure.logs;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import ua.lietto.devhelp.constants.DevLogSwitcher;
+import ua.bugfreeadventure.constants.DevLogSwitcher;
 
 /**
  * Created by lietto on 11.09.2014.

@@ -1,4 +1,4 @@
-package ua.lietto.devhelp.constants;
+package ua.bugfreeadventure.constants;
 
 /**
  * Created by lietto on 11.09.2014.

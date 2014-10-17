@@ -1,4 +1,4 @@
-package ua.lietto.devhelp.logs;
+package ua.bugfreeadventure.logs;
 
 import android.content.Context;
 

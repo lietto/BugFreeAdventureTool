@@ -1,7 +1,7 @@
-package ua.lietto.devhelp.fragment;
+package ua.bugfreeadventure.fragment;
 
 import android.app.Fragment;
-import ua.lietto.devhelp.activity.ParentActivity;
+import ua.bugfreeadventure.activity.ParentActivity;
 
 /**
  * Created by lietto on 11.09.2014.

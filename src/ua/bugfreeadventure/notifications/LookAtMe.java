@@ -1,12 +1,12 @@
-package ua.lietto.devhelp.notifications;
+package ua.bugfreeadventure.notifications;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import ua.lietto.devhelp.constants.DevLogSwitcher;
-import ua.lietto.devhelp.logs.AppToast;
+import ua.bugfreeadventure.constants.DevLogSwitcher;
+import ua.bugfreeadventure.logs.AppToast;
 
 /**
  * Created by lietto on 11.09.2014.

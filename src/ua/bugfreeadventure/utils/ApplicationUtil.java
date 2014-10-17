@@ -1,4 +1,4 @@
-package ua.lietto.devhelp.utils;
+package ua.bugfreeadventure.utils;
 
 import android.os.Build;
 

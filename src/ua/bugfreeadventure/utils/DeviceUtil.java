@@ -1,4 +1,4 @@
-package ua.lietto.devhelp.utils;
+package ua.bugfreeadventure.utils;
 
 /**
  * Created by lietto on 12.09.2014.
