@@ -5,7 +5,7 @@ import android.os.Build;
 /**
  * Created by lietto on 12.09.2014.
  */
-public class ApplicationUtil {
+public class ThisApplication {
 
     public static int getAndroidVersion() {
         return Build.VERSION.SDK_INT;
