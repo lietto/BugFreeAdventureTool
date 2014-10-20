@@ -13,7 +13,7 @@ public class NextResponse {
 
     private JsonNode rootNode;
     private boolean isSuccessful;
-
+    private boolean isExist = true;
 
     public NextResponse(Response response) {
 
@@ -28,9 +28,10 @@ public class NextResponse {
 
             }
         } else {
+            isExist = false;
+            this.isSuccessful = false;
 
         }
-
     }
 
     public JsonNode getRootNode() {

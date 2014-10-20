@@ -9,7 +9,14 @@ public enum NextError {
 
     public String getMessage() {
         switch (this) {
-
+            case NO_RESPONSE:
+                return "No actual response from server!";
+            case NO_SERVER_CONNECTION:
+                return "No server connection! Please, try later!";
+            case NO_INTERNET_CONNECTION:
+                return "No internet connection!";
+            case INTERNALL_APP_ERROR:
+                return "Internal app error!";
 
         }
         return "";
