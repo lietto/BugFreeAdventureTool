@@ -40,7 +40,7 @@ public class SMTL {
             sLog = new SMTL();
         }
 
-        sLog.TAG = "ReadoManiac";
+        sLog.TAG = "BuFreeAdventure";
 
         return sLog;
     }
