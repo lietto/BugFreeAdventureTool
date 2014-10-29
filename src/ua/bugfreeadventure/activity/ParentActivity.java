@@ -1,16 +1,16 @@
 package ua.bugfreeadventure.activity;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import ua.bugfreeadventure.logs.DevToast;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import ua.bugfreeadventure.notifications.DevToast;
 import ua.bugfreeadventure.notifications.LookAtMe;
 
 /**
  * Created by lietto on 11.09.2014.
  */
-public class ParentActivity extends Activity{
+public class ParentActivity extends ActionBarActivity{
 
-    protected String TAG = this.getClass().getSimpleName();
     protected ProgressDialog progressDialog;
 
     public void showErrorDevToast(String text) {
@@ -37,7 +37,6 @@ public class ParentActivity extends Activity{
         LookAtMe.context(this).showGreen(text);
     }
 
-
     protected void showProgressDialog() {
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(this);
@@ -52,4 +51,10 @@ public class ParentActivity extends Activity{
         }
 
     }
+
+    protected ActionBar getToolBar() {
+        return getSupportActionBar();
+    }
+
+
 }

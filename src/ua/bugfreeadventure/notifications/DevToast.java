@@ -1,4 +1,4 @@
-package ua.bugfreeadventure.logs;
+package ua.bugfreeadventure.notifications;
 
 import android.content.Context;
 import android.graphics.Color;

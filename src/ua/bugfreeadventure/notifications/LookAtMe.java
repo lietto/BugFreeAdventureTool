@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import ua.bugfreeadventure.constants.DevLogSwitcher;
-import ua.bugfreeadventure.logs.AppToast;
 
 /**
  * Created by lietto on 11.09.2014.
