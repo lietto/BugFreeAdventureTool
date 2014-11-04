@@ -5,7 +5,6 @@ import android.widget.ImageView;
 import com.squareup.okhttp.*;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.UrlConnectionDownloader;
-import ua.bugfreeadventure.utils.UrlBuilder;
 
 import java.util.HashMap;
 
@@ -78,10 +77,7 @@ public class NextHttp {
 
         com.squareup.okhttp.Request request = new com.squareup.okhttp.Request.Builder()
                 .url(
-                        UrlBuilder
-                                .get()
-                                .controller(NextControlers.controller)
-                                .method(NextMethods.method)
+                        "UrlBuilder.get().controller(NextControlers.controller).method(NextMethods.method)"
                 )
 //                .header("Authorization", "Basic " + Authentication.getInstance(context).getUserBase())
                 .post(formBody).tag(NextMethods.method)
