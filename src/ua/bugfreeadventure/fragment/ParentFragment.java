@@ -16,7 +16,7 @@ public abstract class ParentFragment extends Fragment{
     protected String TAG = this.getClass().getSimpleName();
 
     protected View fragmentView;
-    private int viewLayoutId;
+
 
     protected ParentActivity getOwner() {
         return (ParentActivity) getActivity();
@@ -29,7 +29,7 @@ public abstract class ParentFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        fragmentView = inflater.inflate(viewLayoutId, container, false);
+        fragmentView = inflater.inflate(getViewLayoutId(), container, false);
 
         initActionBar();
 
@@ -50,6 +50,9 @@ public abstract class ParentFragment extends Fragment{
     protected abstract void initActionBar();
 
     protected abstract void initEventListeners();
+
+    protected abstract int getViewLayoutId();
+
 
 
     protected void showErrorDevToast(String text) {

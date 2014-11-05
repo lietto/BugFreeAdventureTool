@@ -41,8 +41,6 @@ public class DevToast extends AppToast{
 
             toast.getView().setBackgroundColor(Color.YELLOW);
 
-
-
             toast.show();
         }
     }
@@ -65,7 +63,7 @@ public class DevToast extends AppToast{
 
        view.setPadding(15, 15, 15, 15);
 
-       view.setText(text);
+       view.setText("Developer message: " + text);
 
        ViewGroup.LayoutParams params =
                new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

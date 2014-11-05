@@ -22,11 +22,9 @@ public abstract class ParentDrawerActivity extends ParentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(getThemeRes());
+
 
         super.onCreate(savedInstanceState);
-
-        setContentView(getMainLayoutRes());
 
         getToolBar().setDisplayHomeAsUpEnabled(true);
         getToolBar().setDisplayShowHomeEnabled(true);
@@ -35,8 +33,6 @@ public abstract class ParentDrawerActivity extends ParentActivity {
         initLeftMenu();
 
     }
-
-    protected abstract int getThemeRes();
 
     protected void initLeftMenu() {
         mDrawerLayout = (DrawerLayout) findViewById(getDrawerLayoutRes());
@@ -49,8 +45,6 @@ public abstract class ParentDrawerActivity extends ParentActivity {
     }
 
     protected abstract int getDrawerLayoutRes() ;
-
-    protected abstract int getMainLayoutRes() ;
 
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view

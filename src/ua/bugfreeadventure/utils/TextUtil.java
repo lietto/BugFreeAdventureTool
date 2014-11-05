@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-public class Common {
+public class TextUtil {
 
 	public static String md5(final String s) {
         try {
@@ -43,5 +43,8 @@ public class Common {
 
 	private static final Pattern EMAIL_PATTERN = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
+	public static boolean isFullyEmpty(String text) {
+			return (text == null || text.equalsIgnoreCase("") || text.equalsIgnoreCase("null"));
+	}
 
 }

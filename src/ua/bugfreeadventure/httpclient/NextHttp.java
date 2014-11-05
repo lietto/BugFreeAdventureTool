@@ -26,7 +26,7 @@ public class NextHttp {
     * */
 
 
-    private static NextHttp nextHttp(Context context) {
+    protected static NextHttp nextHttp(Context context) {
         if (nextHttp == null)
             nextHttp = new NextHttp();
         nextHttp.context = context;
