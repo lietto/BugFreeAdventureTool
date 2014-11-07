@@ -1,8 +1,8 @@
 package ua.bugfreeadventure.fragment;
 
-import android.app.ActionBar;
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,31 +11,29 @@ import ua.bugfreeadventure.activity.ParentActivity;
 /**
  * Created by lietto on 11.09.2014.
  */
-public abstract class ParentFragment extends Fragment{
+public abstract class ParentFragment extends Fragment {
+
+
+
 
     protected String TAG = this.getClass().getSimpleName();
-
-    protected View fragmentView;
-
-
+    private View fragmentView;
     protected ParentActivity getOwner() {
         return (ParentActivity) getActivity();
     }
 
     protected ActionBar getActionBar() {
-        return getActivity().getActionBar();
+        return getOwner().getSupportActionBar();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        fragmentView = inflater.inflate(getViewLayoutId(), container, false);
+        fragmentView = getFragmentView(inflater, container);
 
         initActionBar();
 
-        initView(fragmentView);
-
-        return fragmentView;
+        return initView(fragmentView);
     }
 
     @Override
@@ -45,7 +43,20 @@ public abstract class ParentFragment extends Fragment{
     }
 
 
-    protected abstract void initView(View view);
+    protected View getFragmentView(LayoutInflater inflater, ViewGroup container) {
+        return inflater.inflate(getViewLayoutId(), container, false);
+    }
+
+    protected void setFragmentView(View view) {
+        fragmentView = view;
+
+    }
+
+    protected View getMainView() {
+        return fragmentView;
+    }
+
+    protected abstract View initView(View view);
 
     protected abstract void initActionBar();
 

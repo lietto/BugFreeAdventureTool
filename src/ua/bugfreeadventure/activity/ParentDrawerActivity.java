@@ -15,7 +15,7 @@ import ua.bugfreeadventure.R;
  */
 public abstract class ParentDrawerActivity extends ParentActivity {
 
-    private DrawerLayout mDrawerLayout;
+    protected DrawerLayout mDrawerLayout;
     private View mMenuLayout;
 
     protected ActionBarDrawerToggle mDrawerToggle;

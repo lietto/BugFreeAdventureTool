@@ -18,6 +18,7 @@ public abstract class ParentActivity extends ActionBarActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (getThemeRes() != -1)
         setTheme(getThemeRes());
 
         super.onCreate(savedInstanceState);
@@ -27,11 +28,50 @@ public abstract class ParentActivity extends ActionBarActivity{
         else
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+
+
         setContentView(getMainLayoutRes());
+
+        setActionBarSettings(getToolBar());
+
+        initViews();
+
+        initEventListeners();
+
+        if (savedInstanceState == null) {
+                nullStartSavingState();
+        } else {
+                notNullStartSavingState(savedInstanceState);
+        }
     }
 
-    protected abstract int getMainLayoutRes() ;
+    protected abstract int getMainLayoutRes();
+
     protected abstract int getThemeRes();
+
+    /** Set display optins and paramters for action bar */
+    protected abstract void setActionBarSettings(ActionBar bar);
+
+    /** Init activity views */
+    protected abstract void initViews();
+
+    /** Set listeners for item events */
+    protected abstract void initEventListeners();
+
+    /** Insert code for first launch of activity */
+    protected abstract void notNullStartSavingState(Bundle state);
+
+    /** Insert code for start with saved instance state */
+    protected abstract void nullStartSavingState();
+
+    /** Save here the state of the activity*/
+    protected abstract void saveInstanceState(Bundle outState);
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        saveInstanceState(outState);
+    }
 
     public void showErrorDevToast(String text) {
         DevToast.context(this).showRed(text);
