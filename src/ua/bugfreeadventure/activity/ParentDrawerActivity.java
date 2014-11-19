@@ -3,6 +3,7 @@ package ua.bugfreeadventure.activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -25,10 +26,6 @@ public abstract class ParentDrawerActivity extends ParentActivity {
 
 
         super.onCreate(savedInstanceState);
-
-        getToolBar().setDisplayHomeAsUpEnabled(true);
-        getToolBar().setDisplayShowHomeEnabled(true);
-        getToolBar().setDisplayUseLogoEnabled(true);
 
         initLeftMenu();
 

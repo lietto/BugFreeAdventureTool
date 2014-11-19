@@ -38,7 +38,7 @@ public abstract class NextCallback implements Callback {
         return error;
     }
 
-    private Handler responseHandler = new Handler();
+    protected Handler responseHandler = new Handler();
 
 
     @Override

@@ -32,7 +32,7 @@ public abstract class ParentActivity extends ActionBarActivity{
 
         setContentView(getMainLayoutRes());
 
-        setActionBarSettings(getToolBar());
+        setActionBarSettings();
 
         initViews();
 
@@ -50,7 +50,7 @@ public abstract class ParentActivity extends ActionBarActivity{
     protected abstract int getThemeRes();
 
     /** Set display optins and paramters for action bar */
-    protected abstract void setActionBarSettings(ActionBar bar);
+    protected abstract void setActionBarSettings();
 
     /** Init activity views */
     protected abstract void initViews();
