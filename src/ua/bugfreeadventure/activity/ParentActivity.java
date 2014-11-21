@@ -12,14 +12,14 @@ import ua.bugfreeadventure.utils.ThisDevice;
 /**
  * Created by lietto on 11.09.2014.
  */
-public abstract class ParentActivity extends ActionBarActivity{
+public abstract class ParentActivity extends ActionBarActivity {
 
     protected ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (getThemeRes() != -1)
-        setTheme(getThemeRes());
+            setTheme(getThemeRes());
 
         super.onCreate(savedInstanceState);
 
@@ -28,43 +28,57 @@ public abstract class ParentActivity extends ActionBarActivity{
         else
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-
-
         setContentView(getMainLayoutRes());
 
+        createUI();
+
+        if (savedInstanceState == null) {
+            nullStartSavingState();
+        } else {
+            notNullStartSavingState(savedInstanceState);
+        }
+    }
+
+    protected void createUI() {
         setActionBarSettings();
 
         initViews();
 
         initEventListeners();
-
-        if (savedInstanceState == null) {
-                nullStartSavingState();
-        } else {
-                notNullStartSavingState(savedInstanceState);
-        }
     }
 
     protected abstract int getMainLayoutRes();
 
     protected abstract int getThemeRes();
 
-    /** Set display optins and paramters for action bar */
+    /**
+     * Set display optins and paramters for action bar
+     */
     protected abstract void setActionBarSettings();
 
-    /** Init activity views */
+    /**
+     * Init activity views
+     */
     protected abstract void initViews();
 
-    /** Set listeners for item events */
+    /**
+     * Set listeners for item events
+     */
     protected abstract void initEventListeners();
 
-    /** Insert code for first launch of activity */
+    /**
+     * Insert code for first launch of activity
+     */
     protected abstract void notNullStartSavingState(Bundle state);
 
-    /** Insert code for start with saved instance state */
+    /**
+     * Insert code for start with saved instance state
+     */
     protected abstract void nullStartSavingState();
 
-    /** Save here the state of the activity*/
+    /**
+     * Save here the state of the activity
+     */
     protected abstract void saveInstanceState(Bundle outState);
 
     @Override
@@ -97,7 +111,7 @@ public abstract class ParentActivity extends ActionBarActivity{
         LookAtMe.context(this).showGreen(text);
     }
 
-    protected void showProgressDialog() {
+    public void showProgressDialog() {
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(this);
         }
@@ -105,7 +119,7 @@ public abstract class ParentActivity extends ActionBarActivity{
         progressDialog.show();
     }
 
-    protected void hideProgressDialog() {
+    public void hideProgressDialog() {
         if (progressDialog != null) {
             progressDialog.cancel();
         }

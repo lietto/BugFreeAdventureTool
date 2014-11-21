@@ -5,10 +5,7 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+import android.view.*;
 import ua.bugfreeadventure.R;
 
 /**
@@ -24,11 +21,15 @@ public abstract class ParentDrawerActivity extends ParentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
 
+    }
+
+    @Override
+    protected void createUI() {
         initLeftMenu();
 
+        super.createUI();
     }
 
     protected void initLeftMenu() {
@@ -36,6 +37,7 @@ public abstract class ParentDrawerActivity extends ParentActivity {
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                 R.string.open, R.string.close);
+
 
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.setDrawerListener(mDrawerToggle);

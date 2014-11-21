@@ -5,7 +5,7 @@ package ua.bugfreeadventure.httpclient;
  */
 public enum NextError {
 
-    NO_RESPONSE, NO_SERVER_CONNECTION, NO_INTERNET_CONNECTION, INTERNALL_APP_ERROR, error, JSON_ERROR;
+    NO_RESPONSE, NO_SERVER_CONNECTION, NO_INTERNET_CONNECTION, INTERNALL_APP_ERROR, JSON_ERROR;
 
     public String getMessage() {
         switch (this) {
@@ -18,7 +18,7 @@ public enum NextError {
             case INTERNALL_APP_ERROR:
                 return "Internal app error!";
             case JSON_ERROR:
-                return "Проблема при созданиие JSON";
+                return "Incorrect server response!";
 
         }
         return "Неизвестная ошибка!";

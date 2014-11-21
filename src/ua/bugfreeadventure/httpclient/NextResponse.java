@@ -13,7 +13,7 @@ import java.io.IOException;
 public class NextResponse {
 
     private JsonNode rootNode;
-    private JsonNode body;
+    protected JsonNode body;
     private boolean isSuccessful;
     private boolean isExist = true;
 
@@ -43,9 +43,9 @@ public class NextResponse {
         return body;
     }
 
-    public JsonNode getBody(String bodyName) {
-        this.body = rootNode.get(bodyName);
-
+    public final JsonNode getBody(String bodyName) {
+        if (body == null)
+            this.body = rootNode.get(bodyName);
         return body;
     }
 

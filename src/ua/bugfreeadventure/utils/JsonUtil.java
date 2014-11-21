@@ -7,7 +7,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class JSON {
+public class JsonUtil {
 
 
     public static String notNullString(JsonNode object, String field) {

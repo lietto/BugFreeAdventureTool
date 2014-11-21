@@ -41,7 +41,8 @@ public class TextUtil {
 		return EMAIL_PATTERN.matcher(str).matches();
 	}
 
-	private static final Pattern EMAIL_PATTERN = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+	private static final Pattern EMAIL_PATTERN
+			= Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
 	public static boolean isFullyEmpty(String text) {
 			return (text == null || text.equalsIgnoreCase("") || text.equalsIgnoreCase("null"));
