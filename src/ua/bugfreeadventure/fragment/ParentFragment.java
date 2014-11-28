@@ -14,10 +14,9 @@ import ua.bugfreeadventure.activity.ParentActivity;
 public abstract class ParentFragment extends Fragment {
 
 
-
-
     protected String TAG = this.getClass().getSimpleName();
     private View fragmentView;
+
     protected ParentActivity getOwner() {
         return (ParentActivity) getActivity();
     }
@@ -33,8 +32,20 @@ public abstract class ParentFragment extends Fragment {
 
         initActionBar();
 
-        return initView(fragmentView);
+        initViews(fragmentView);
+
+        if (savedInstanceState == null) {
+            nullStartSavingState();
+        } else {
+            notNullStartSavingState(savedInstanceState);
+        }
+
+        return fragmentView;
     }
+
+    protected abstract void notNullStartSavingState(Bundle state);
+
+    protected abstract void nullStartSavingState();
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -42,29 +53,29 @@ public abstract class ParentFragment extends Fragment {
         initEventListeners();
     }
 
-
-    protected View getFragmentView(LayoutInflater inflater, ViewGroup container) {
+    private View getFragmentView(LayoutInflater inflater, ViewGroup container) {
         return inflater.inflate(getViewLayoutId(), container, false);
-    }
-
-    protected void setFragmentView(View view) {
-        fragmentView = view;
-
     }
 
     protected View getMainView() {
         return fragmentView;
     }
 
-    protected abstract View initView(View view);
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        saveInstanceState(outState);
+    }
+
+    protected abstract void saveInstanceState(Bundle outState);
+
+    protected abstract void initViews(View view);
 
     protected abstract void initActionBar();
 
     protected abstract void initEventListeners();
 
     protected abstract int getViewLayoutId();
-
-
 
     protected void showErrorDevToast(String text) {
         getOwner().showErrorDevToast(text);
@@ -89,8 +100,5 @@ public abstract class ParentFragment extends Fragment {
     protected void showSuccessToastToUser(String text) {
         getOwner().showSuccessToastToUser(text);
     }
-
-
-
 
 }

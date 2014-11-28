@@ -45,13 +45,6 @@ public abstract class ParentDrawerActivity extends ParentActivity {
 
     protected abstract int getDrawerLayoutRes() ;
 
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        // If the nav drawer is open, hide action items related to the content view
-        //boolean drawerOpen = mDrawerLayout.isDrawerOpen(mMenuLayout);
-        //menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
-        return super.onPrepareOptionsMenu(menu);
-    }
-
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -69,11 +62,20 @@ public abstract class ParentDrawerActivity extends ParentActivity {
     @Override
     public void onBackPressed() {
         if (mDrawerLayout != null)
-            if (mDrawerLayout.isDrawerOpen(Gravity.START | Gravity.LEFT)) {
+            if (mDrawerLayout.isDrawerOpen(getDrawerGravity())) {
                 mDrawerLayout.closeDrawers();
                 return;
             }
         super.onBackPressed();
+    }
+
+    protected abstract int getDrawerGravity();
+
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // If the nav drawer is open, hide action items related to the content view
+        //boolean drawerOpen = mDrawerLayout.isDrawerOpen(mMenuLayout);
+        //menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override

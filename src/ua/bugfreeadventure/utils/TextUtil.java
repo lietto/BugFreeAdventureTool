@@ -2,6 +2,7 @@ package ua.bugfreeadventure.utils;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.EditText;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -46,6 +47,11 @@ public class TextUtil {
 
 	public static boolean isFullyEmpty(String text) {
 			return (text == null || text.equalsIgnoreCase("") || text.equalsIgnoreCase("null"));
+	}
+
+	public static boolean isFullyEmpty(EditText view) {
+		String text = view.getText().toString().trim();
+		return (text.equalsIgnoreCase("") || text.equalsIgnoreCase("null"));
 	}
 
 }
