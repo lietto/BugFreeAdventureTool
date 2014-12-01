@@ -17,12 +17,12 @@ public abstract class ParentFragment extends Fragment {
     protected String TAG = this.getClass().getSimpleName();
     private View fragmentView;
 
-    protected ParentActivity getOwner() {
+    protected ParentActivity getParentActivity() {
         return (ParentActivity) getActivity();
     }
 
     protected ActionBar getActionBar() {
-        return getOwner().getSupportActionBar();
+        return getParentActivity().getSupportActionBar();
     }
 
     @Override
@@ -30,27 +30,35 @@ public abstract class ParentFragment extends Fragment {
 
         fragmentView = getFragmentView(inflater, container);
 
-        initActionBar();
+        initActionBar(fragmentView);
 
         initViews(fragmentView);
 
         if (savedInstanceState == null) {
-            nullStartSavingState();
+            nullStartSavingState(fragmentView);
         } else {
-            notNullStartSavingState(savedInstanceState);
+            notNullStartSavingState(savedInstanceState, fragmentView);
         }
 
         return fragmentView;
     }
 
-    protected abstract void notNullStartSavingState(Bundle state);
+    protected abstract int getViewLayoutId();
 
-    protected abstract void nullStartSavingState();
+    protected abstract void initActionBar(View fragmView);
+
+    protected abstract void initViews(View view);
+
+    protected abstract void initEventListeners(View fragmView);
+
+    protected abstract void notNullStartSavingState(Bundle state, View fragmView);
+
+    protected abstract void nullStartSavingState(View fragmView);
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initEventListeners();
+        initEventListeners(getMainView());
     }
 
     private View getFragmentView(LayoutInflater inflater, ViewGroup container) {
@@ -69,36 +77,28 @@ public abstract class ParentFragment extends Fragment {
 
     protected abstract void saveInstanceState(Bundle outState);
 
-    protected abstract void initViews(View view);
-
-    protected abstract void initActionBar();
-
-    protected abstract void initEventListeners();
-
-    protected abstract int getViewLayoutId();
-
     protected void showErrorDevToast(String text) {
-        getOwner().showErrorDevToast(text);
+        getParentActivity().showErrorDevToast(text);
     }
 
     protected void showWarningDevToast(String text) {
-        getOwner().showWarningDevToast(text);
+        getParentActivity().showWarningDevToast(text);
     }
 
     protected void showSuccessDevToast(String text) {
-        getOwner().showSuccessDevToast(text);
+        getParentActivity().showSuccessDevToast(text);
     }
 
     protected void showErrorToastToUser(String text) {
-        getOwner().showErrorToastToUser(text);
+        getParentActivity().showErrorToastToUser(text);
     }
 
     protected void showWarningToastToUser(String text) {
-        getOwner().showWarningToastToUser(text);
+        getParentActivity().showWarningToastToUser(text);
     }
 
     protected void showSuccessToastToUser(String text) {
-        getOwner().showSuccessToastToUser(text);
+        getParentActivity().showSuccessToastToUser(text);
     }
 
 }
