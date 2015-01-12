@@ -9,4 +9,4 @@ Consists of:
 
 I plan this library to be small but useful.
 
-It`s library better for others because its mine. So use it as is.
+It`s library not better for others because its mine. So use it as is.
