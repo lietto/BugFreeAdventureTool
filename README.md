@@ -1,3 +1,5 @@
+It`s all Deprecated
+
 Bug Free Adventure Tool v.0.0.1 (Pre-Alpha)
 =================
 This is a repository with classes useful for Android developers. Created for personal use.
